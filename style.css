@@ -1,0 +1,104 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  background-color: #f5eeeb;
+}
+
+.topFrame,
+.buttons,
+.solar,
+.solarBar,
+.frame {
+  display: flex;
+}
+
+.frame {
+  width: 50vh;
+  justify-content: center;
+  flex-direction: column;
+  align-items: stretch;
+  background-color: #7c848b;
+  border-radius: 10px;
+  height: 80vh;
+  padding: 20px;
+  box-shadow: 3px 8px 12px 5px rgba(0, 0, 0, 0.44);
+}
+.topFrame {
+  flex: 1;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
+  gap: 10px;
+}
+
+.buttons {
+  flex: 3;
+  flex-wrap: wrap;
+  width: 40vh;
+  align-self: center;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  height: 10vh;
+  width: 9vh;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #212128;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4vh;
+}
+.solar {
+  justify-content: center;
+  flex: 1;
+}
+.screen {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+  border-style: solid;
+  background-color: #7d8c73;
+  font-size: 5vw;
+}
+.box {
+  border-style: solid;
+  border-color: #ad937a;
+  background-color: #9a765c;
+  flex: 1;
+}
+.brand {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+  font-size: 3vw;
+}
+
+.solarBar {
+  flex: 1;
+}
+
+div {
+  font-family: Roboto, sans-serif;
+}
+
+.sign {
+  background-color: #c04649;
+}
+
+.equals {
+  background-color: #a0b6af;
+}
+
+.clear {
+  background-color: #b5725d;
+}
