@@ -54,19 +54,35 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 4vh;
+  user-select: none;
 }
 .solar {
   justify-content: center;
   flex: 1;
 }
+.fullScreen {
+  display: flex;
+  height: 10vh;
+  border-style: solid;
+  background-color: #7d8c73;
+}
 .screen {
+  display: flex;
+  flex: 5;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: #7d8c73;
+  font-size: 5vw;
+  font-family: DS-Digital, Roboto, sans-serif;
+}
+.ouch {
   display: flex;
   flex: 1;
   align-items: center;
   justify-content: flex-end;
-  border-style: solid;
   background-color: #7d8c73;
   font-size: 5vw;
+  font-family: DS-Digital, Roboto, sans-serif;
 }
 .box {
   border-style: solid;
@@ -77,10 +93,10 @@ body {
 .brand {
   flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   font-weight: bolder;
-  font-size: 3vw;
+  font-size: 1.5vw;
 }
 
 .solarBar {
@@ -97,8 +113,23 @@ div {
 
 .equals {
   background-color: #a0b6af;
+  width: 18vh;
 }
 
 .clear {
   background-color: #b5725d;
+  width: 18vh;
+}
+
+.backSpace {
+  background-color: #b5725d;
+}
+
+.blink {
+  animation: blinker 1s linear infinite;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 }
