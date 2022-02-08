@@ -133,3 +133,13 @@ div {
     opacity: 0;
   }
 }
+
+.blinker {
+  width: 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: #7d8c73;
+  font-size: 5vw;
+  font-family: DS-Digital, Roboto, sans-serif;
+}

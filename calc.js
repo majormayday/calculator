@@ -12,6 +12,7 @@ const equalsButton = document.querySelector('.equals');
 const ouch = document.querySelector('.ouch');
 const backSpace = document.querySelector('.backSpace');
 const addDeci = document.querySelector('.deci');
+const blinker = document.querySelector('.blinker');
 
 
 
@@ -34,7 +35,14 @@ backSpace.addEventListener('click', setBackspace);
 addDeci.addEventListener('click', addDecimal);
 clearScreen();
 }
-
+function removeBlink(){
+    blinker.classList.remove('blink');
+    blinker.innerHTML = '';
+}
+function addBlink(){
+    blinker.classList.add('blink');
+    blinker.innerHTML = '|';
+}
 
 //Calc Functions
 
@@ -54,21 +62,21 @@ function buttonPress(e){
     if(typeToClear == true){
         screen.innerHTML = ''
         typeToClear = false;
-        screen.classList.remove('blink');
     }
     else if (screen.innerHTML.length  == 9){
         return;
     }
+    addBlink();
     screen.innerHTML= screen.innerHTML.concat(e.target.innerHTML);
 }
 function clearScreen(){
-    screen.innerHTML = '|';
+    screen.innerHTML = '';
     ouch.innerHTML = '';
     num1 = null;
     num2 = null;
     opSelected = null;
     typeToClear = true;
-    screen.classList.add('blink');
+    addBlink();
 
 }
 function operate(){
@@ -102,6 +110,7 @@ function operate(){
     if(Number(screen.innerHTML) >999999999){
         screen.innerHTML = Number.parseFloat(screen.innerHTML).toExponential(5)
     }
+    removeBlink();
     num1 = Number(screen.innerHTML);
     opSelected = null;
     ouch.innerHTML = '';
