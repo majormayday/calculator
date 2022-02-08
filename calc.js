@@ -178,7 +178,6 @@ function setOperator(e){
         typeToClear = true;
         return;
     }
-
     opSelected = e.target.innerHTML;
     num1= Number(screen.innerHTML);
      ouch.innerHTML = opSelected;
