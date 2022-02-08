@@ -33,6 +33,7 @@ mulButton.addEventListener('click', setOperator);
 equalsButton.addEventListener('click', operate);
 backSpace.addEventListener('click', setBackspace);
 addDeci.addEventListener('click', addDecimal);
+window.addEventListener('keydown', keyPressed);
 clearScreen();
 }
 function removeBlink(){
@@ -42,6 +43,57 @@ function removeBlink(){
 function addBlink(){
     blinker.classList.add('blink');
     blinker.innerHTML = '|';
+}
+
+function keyPressed(e){
+    let keyedCode = e.keyCode;
+    let keyedString = e.key;
+    if ((keyedCode >= 48 && keyedCode <=57 && !(e.shiftKey)) || (keyedCode>=96 && keyedCode <= 105)){
+        buttonPressKey(e.key);
+    }
+    else if (keyedCode == 191 || (keyedCode == 56 && e.shiftKey) || 
+             keyedCode == 189 || (keyedCode == 187 && e.shiftKey)||
+             (keyedCode == 106 || keyedCode == 107 || keyedCode == 109 || keyedCode == 111))
+    { 
+        setOpKey(e.key);
+    }
+    else if (keyedCode == 8 ){
+        setBackspace();
+    }
+    else if (keyedCode == 27){
+        clearScreen();
+    }
+    else if (keyedCode == 13){
+        operate();
+    }
+    else if (keyedCode == 190 || keyedCode == 110){
+        addDecimal();
+    }
+}
+
+function buttonPressKey(keyedCode){
+    if(typeToClear == true){
+        screen.innerHTML = ''
+        typeToClear = false;
+    }
+    else if (screen.innerHTML.length  == 9){
+        return;
+    }
+    addBlink();
+    screen.innerHTML= screen.innerHTML.concat(keyedCode);
+}
+
+function setOpKey(keyedCode){
+    if(opSelected !== null ){
+        opSelected = keyedCode;
+        ouch.innerHTML = opSelected;
+        return;
+    }
+
+    opSelected = keyedCode;
+    num1= Number(screen.innerHTML);
+     ouch.innerHTML = opSelected;
+     screen.innerHTML = '';
 }
 
 //Calc Functions
@@ -93,7 +145,7 @@ function operate(){
         case '-':
             screen.innerHTML=subtract(num1,num2);
             break;
-        case 'x':
+        case '*':
             screen.innerHTML=multiply(num1,num2);
             break;
         case '/':
@@ -114,6 +166,7 @@ function operate(){
     num1 = Number(screen.innerHTML);
     opSelected = null;
     ouch.innerHTML = '';
+    typeToClear = true;
     
 }
 function setOperator(e){
