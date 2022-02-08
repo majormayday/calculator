@@ -164,16 +164,18 @@ function operate(){
     }
     removeBlink();
     num1 = Number(screen.innerHTML);
-    opSelected = null;
     ouch.innerHTML = '';
-    typeToClear = true;
     
 }
 function setOperator(e){
     
     if(opSelected !== null ){
+        num2 = screen.innerHTML
+        operate();
         opSelected = e.target.innerHTML;
         ouch.innerHTML = opSelected;
+        num1 = screen.innerHTML;
+        typeToClear = true;
         return;
     }
 
